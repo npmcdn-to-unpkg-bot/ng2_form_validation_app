@@ -11,6 +11,7 @@ export class SimpleFormComponent {
     listOfMonths: string[];
     listOfDays: string[];
     listOfYears: string[];
+    
     model: FormModel;
     submitted: boolean;
     active: boolean;
