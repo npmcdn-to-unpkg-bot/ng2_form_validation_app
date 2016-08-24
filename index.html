@@ -1,5 +1,5 @@
 <html>
-  <head>
+<head>
     <title>Angular 2 - Forms</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,9 +17,163 @@
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
-  </head>
-  <!-- 3. Display the application -->
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+</head>
+
+<body>
+  <!--<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-sm-offset-3">
+            <form>
+                <h2>Sign Up</h2>
+                <div class="form-group">
+                    <label for="inputFirstName">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputLastName">Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Set your password">
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span id="inputSuccessStatus" class="sr-only">(success)</span>
+                    <div class="ruleslist">
+                        <h5>Your password needs to:</h6>
+                        <ul>
+                            <li>include both lower and upper case characters</li>
+                            <li>include at least one number or symbol</li>
+                            <li><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> be at least 8 characters long</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="sr-only" for="inputMonthOfBirth">Month</label>
+                            <select class="form-control" id="inputMonthOfBirth">
+                                <option>Month</option>
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>June</option>
+                                <option>July</option>
+                                <option>August</option>
+                                <option>September</option>
+                                <option>October</option>
+                                <option>November</option>
+                                <option>December</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-4">
+                            <label class="sr-only" for="inputDayOfBirth">Day</label>
+                            <select class="form-control" id="inputDayOfBirth">
+                                <option>Day</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-4">
+                            <label class="sr-only" for="inputYearOfBirth">Year</label>
+                            <select class="form-control" id="inputYearOfBirth">
+                                <option>Year</option>
+                                <option>1970</option>
+                                <option>1971</option>
+                                <option>1972</option>
+                                <option>1973</option>
+                                <option>1974</option>
+                                <option>1975</option>
+                                <option>1976</option>
+                                <option>1977</option>
+                                <option>1978</option>
+                                <option>1979</option>
+                                <option>1980</option>
+                                <option>1981</option>
+                                <option>1982</option>
+                                <option>1983</option>
+                                <option>1984</option>
+                                <option>1985</option>
+                                <option>1986</option>
+                                <option>1987</option>
+                                <option>1988</option>
+                                <option>1989</option>
+                                <option>1990</option>
+                                <option>1991</option>
+                                <option>1992</option>
+                                <option>1993</option>
+                                <option>1994</option>
+                                <option>1995</option>
+                                <option>1996</option>
+                                <option>1997</option>
+                                <option>1998</option>
+                                <option>1999</option>
+                                <option>2000</option>
+                                <option>2001</option>
+                                <option>2002</option>
+                                <option>2003</option>
+                                <option>2004</option>
+                                <option>2005</option>
+                                <option>2006</option>
+                                <option>2007</option>
+                                <option>2008</option>
+                                <option>2009</option>
+                                <option>2010</option>
+                                <option>2011</option>
+                                <option>2012</option>
+                                <option>2013</option>
+                                <option>2014</option>
+                                <option>2015</option>
+                                <option>2016</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I have read and agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            </form>
+        </div>
+    </div>
+  </div>-->
+  <my-app>Loading...</my-app>
+</body>
 </html>

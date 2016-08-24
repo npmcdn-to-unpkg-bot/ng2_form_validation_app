@@ -1,0 +1,159 @@
+<!--{{diagnostic}}
+<div [hidden]="submitted">
+<div class="container">
+    <h1>Hero Form</h1>
+    <form *ngIf="active" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #spay #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+        TODO: remove this: {{spay.className}}
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.alterEgo" name="alterEgo" (change)="onTouchPassControl(looting.value)" minlength="5" pattern="^abcddef$" #looting="ngModel">
+        <p *ngIf="looting.errors">Password must have at least 5 characters and contains at least one number</p>
+      </div>
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" id="power" required [(ngModel)]="model.power" name="power" #power="ngModel">
+          <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+        </select>
+        <div [hidden]="power.valid || power.pristine"
+             class="alert alert-danger">
+          Power is required
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
+    </form>
+
+</div>
+</div>
+
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">Name</div>
+    <div class="col-xs-9  pull-left">{{ model.name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Alter Ego</div>
+    <div class="col-xs-9 pull-left">{{ model.alterEgo }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Power</div>
+    <div class="col-xs-9 pull-left">{{ model.power }}</div>
+  </div>
+  <br>
+  <button class="btn btn-default" (click)="submitted=false">Edit</button>
+</div>
+-->
+{{diagnostic}}
+<div class="container">
+  <div class="row">
+      <div class="col-sm-5 col-sm-offset-3">
+          <form *ngIf="active" (ngSubmit)="onSubmit()" #simpleForm="ngForm">
+              <h2>Sign Up</h2>
+              <div class="form-group has-feedback" [class.has-success]="firstName.valid">
+                  <label for="inputFirstName">First Name</label>
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" required ngModel name="firstName" #firstName="ngModel">
+                  <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="firstName.valid" aria-hidden="true"></span>
+                  <span id="inputSuccessStatus" class="sr-only">(success)</span>
+                  <div [hidden]="firstName.valid || firstName.pristine"
+                       class="alert alert-danger">
+                    Please enter your first name
+                  </div>
+              </div>
+              <div class="form-group has-feedback" [class.has-success]="lastName.valid">
+                  <label for="inputLastName">Last Name</label>
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" required ngModel name="lastName" #lastName="ngModel">
+                  <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="lastName.valid" aria-hidden="true"></span>
+                  <span id="inputSuccessStatus" class="sr-only">(success)</span>
+                  <div [hidden]="lastName.valid || lastName.pristine"
+                       class="alert alert-danger">
+                    Please enter your last name
+                  </div>
+              </div>
+              <div class="form-group has-feedback" [class.has-success]="email.valid">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" required ngModel name="email" pattern="[^@]+@[^@]+" #email="ngModel">
+                  <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="email.valid" aria-hidden="true"></span>
+                  <span id="inputSuccessStatus" class="sr-only">(success)</span>
+                  <div [hidden]="email.valid || email.pristine"
+                       class="alert alert-danger">
+                    Please enter valid email address
+                  </div>
+              </div>
+              <div class="form-group has-feedback" [class.has-success]="pass.valid">
+                  <label for="inputPassword">Password</label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Set your password" required ngModel name="password" #pass="ngModel" minlength="8">
+                  <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="pass.valid" aria-hidden="true"></span>
+                  <span id="inputSuccessStatus" class="sr-only">(success)</span>
+                  <div [hidden]="pass.valid || pass.pristine"
+                       class="alert alert-danger">
+                    Your password needs to be at least 8 characters long
+                  </div>
+              </div>
+              <div class="form-group">
+                <fieldset>
+                  <legend>Date of Birth</legend>
+                  <div class="row">
+                      <div class="col-xs-4">
+                          <label for="inputMonthOfBirth">Month</label>
+                          <select class="form-control" id="inputMonthOfBirth" required ngModel name="monthOfBirth" #monthOfBirth="ngModel">
+                              <option *ngFor="let month of listOfMonths" [value]="month">{{month}}</option>
+                          </select>
+                      </div>
+                      <div class="col-xs-4">
+                          <label for="inputDayOfBirth">Day</label>
+                          <select class="form-control" id="inputDayOfBirth" required ngModel name="dayOfBirth" #dayOfBirth="ngModel">
+                              <option *ngFor="let day of listOfDays" [value]="day">{{day}}</option>
+                          </select>
+                      </div>
+                      <div class="col-xs-4">
+                          <label for="inputYearOfBirth">Year</label>
+                          <select class="form-control" id="inputYearOfBirth"  required ngModel name="yearOfBirth" #yearOfBirth="ngModel">
+                              <option *ngFor="let year of listOfYears" [value]="year">{{year}}</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12">
+                          <div [hidden]="monthOfBirth.valid || monthOfBirth.untouched"
+                               class="alert alert-danger">
+                            Please select a month
+                          </div>
+                      </div>
+                      <div class="col-xs-12">
+                          <div [hidden]="dayOfBirth.valid || dayOfBirth.untouched"
+                               class="alert alert-danger">
+                            Please select a day
+                          </div>
+                      </div>
+                      <div class="col-xs-12">
+                          <div [hidden]="yearOfBirth.valid || yearOfBirth.untouched"
+                               class="alert alert-danger">
+                            Please select a year
+                          </div>
+                      </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="checkbox">
+                  <label>
+                      <input type="checkbox" required ngModel name="agreement" #agreement="ngModel"> I have read and agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                      <div [hidden]="agreement.valid || agreement.pristine"
+                           class="alert alert-danger">
+                        Your password needs to be at least 8 characters long
+                      </div>
+                  </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+          </form>
+      </div>
+  </div>
+</div>

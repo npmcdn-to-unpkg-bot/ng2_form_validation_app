@@ -1,12 +1,15 @@
 "use strict";
-var Hero = (function () {
-    function Hero(id, name, power, alterEgo) {
-        this.id = id;
-        this.name = name;
-        this.power = power;
-        this.alterEgo = alterEgo;
+var FormModel = (function () {
+    function FormModel(firstName, lastName, email, password, monthOfBirth, dayOfBirth, yearOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.monthOfBirth = monthOfBirth;
+        this.dayOfBirth = dayOfBirth;
+        this.yearOfBirth = yearOfBirth;
     }
-    return Hero;
+    return FormModel;
 }());
-exports.Hero = Hero;
+exports.FormModel = FormModel;
 //# sourceMappingURL=hero.js.map
