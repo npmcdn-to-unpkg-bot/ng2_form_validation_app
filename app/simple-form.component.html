@@ -1,0 +1,105 @@
+{{diagnostic}}
+<div class="container">
+  <div class="row">
+      <div class="col-sm-5 col-sm-offset-3">
+          <form *ngIf="active" (ngSubmit)="onSubmit()" #simpleForm="ngForm">
+              <h2>Sign Up</h2>
+              <div class="form-group has-feedback" [class.has-success]="firstName.valid">
+                  <label for="inputFirstName">First Name</label>
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" required [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel">
+                  <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="firstName.valid" aria-hidden="true"></span>
+                  <span id="inputSuccessStatus" class="sr-only">(success)</span>
+                  <div [hidden]="firstName.valid || firstName.pristine"
+                       class="alert alert-danger">
+                    Please enter your first name
+                  </div>
+              </div>
+              <div class="form-group has-feedback" [class.has-success]="lastName.valid">
+                  <label for="inputLastName">Last Name</label>
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" required [(ngModel)]="model.lastName" name="lastName" #lastName="ngModel">
+                  <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="lastName.valid" aria-hidden="true"></span>
+                  <span id="inputSuccessStatus" class="sr-only">(success)</span>
+                  <div [hidden]="lastName.valid || lastName.pristine"
+                       class="alert alert-danger">
+                    Please enter your last name
+                  </div>
+              </div>
+              <div class="form-group has-feedback" [class.has-success]="email.valid">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" required [(ngModel)]="model.email" name="email" pattern="[^@]+@[^@]+" #email="ngModel">
+                  <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="email.valid" aria-hidden="true"></span>
+                  <span id="inputSuccessStatus" class="sr-only">(success)</span>
+                  <div [hidden]="email.valid || email.pristine"
+                       class="alert alert-danger">
+                    Please enter valid email address
+                  </div>
+              </div>
+              <div class="form-group has-feedback" [class.has-success]="pass.valid">
+                  <label for="inputPassword">Password</label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Set your password" required [(ngModel)]="model.password" name="password" #pass="ngModel" minlength="8">
+                  <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="pass.valid" aria-hidden="true"></span>
+                  <span id="inputSuccessStatus" class="sr-only">(success)</span>
+                  <div [hidden]="pass.valid || pass.pristine"
+                       class="alert alert-danger">
+                    Your password needs to be at least 8 characters long
+                  </div>
+              </div>
+              <div class="form-group">
+                <fieldset>
+                  <legend>Date of Birth</legend>
+                  <div class="row">
+                      <div class="col-xs-4">
+                          <label for="inputMonthOfBirth">Month</label>
+                          <select class="form-control" id="inputMonthOfBirth" required [(ngModel)]="model.monthOfBirth" name="monthOfBirth" #monthOfBirth="ngModel">
+                              <option *ngFor="let month of listOfMonths" [value]="month">{{month}}</option>
+                          </select>
+                      </div>
+                      <div class="col-xs-4">
+                          <label for="inputDayOfBirth">Day</label>
+                          <select class="form-control" id="inputDayOfBirth" required [(ngModel)]="model.dayOfBirth" name="dayOfBirth" #dayOfBirth="ngModel">
+                              <option *ngFor="let day of listOfDays" [value]="day">{{day}}</option>
+                          </select>
+                      </div>
+                      <div class="col-xs-4">
+                          <label for="inputYearOfBirth">Year</label>
+                          <select class="form-control" id="inputYearOfBirth"  required [(ngModel)]="model.yearOfBirth" name="yearOfBirth" #yearOfBirth="ngModel">
+                              <option *ngFor="let year of listOfYears" [value]="year">{{year}}</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12">
+                          <div [hidden]="monthOfBirth.valid || monthOfBirth.untouched"
+                               class="alert alert-danger">
+                            Please select a month
+                          </div>
+                      </div>
+                      <div class="col-xs-12">
+                          <div [hidden]="dayOfBirth.valid || dayOfBirth.untouched"
+                               class="alert alert-danger">
+                            Please select a day
+                          </div>
+                      </div>
+                      <div class="col-xs-12">
+                          <div [hidden]="yearOfBirth.valid || yearOfBirth.untouched"
+                               class="alert alert-danger">
+                            Please select a year
+                          </div>
+                      </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="checkbox">
+                  <label>
+                      <input type="checkbox" required [(ngModel)]="model.agreement" name="agreement" #agreement="ngModel"> I have read and agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                      <div [hidden]="model.agreement===true || agreement.untouched"
+                           class="alert alert-danger">
+                        In order to sign up you need to read and agree to our "Terms of Use" and "Privacy Policy".
+                      </div>
+                  </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="!simpleForm.form.valid">Sign Up</button>
+          </form>
+      </div>
+  </div>
+</div>
