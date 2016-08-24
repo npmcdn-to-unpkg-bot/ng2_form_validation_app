@@ -7,7 +7,8 @@ export class FormModel {
         public password: string,
         public monthOfBirth: string,
         public dayOfBirth: string,
-        public yearOfBirth: string
+        public yearOfBirth: string,
+        public agreement: boolean
     ) { }
 
 }
